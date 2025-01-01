@@ -1,0 +1,67 @@
+.journey-board {
+    background: #000000;
+    color: white;
+    transition: width 0.3s ease;
+    height: calc(100vh - 60px);
+}
+
+.journey-board.expanded {
+    width: 300px;
+}
+
+.journey-board.collapsed {
+    width: 50px;
+}
+
+.journey-board-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.journey-board-title {
+    margin: 0;
+    font-size: 16px;
+}
+
+.journey-board-content {
+    padding: 15px 0;
+}
+
+.task-group {
+    cursor: pointer;
+}
+
+.task-group.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.task-title {
+    padding: 10px 15px;
+}
+
+.asset-list {
+    list-style: none;
+}
+
+.asset-item {
+    padding: 8px 30px;
+    font-size: 14px;
+}
+
+.asset-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.asset-item.active {
+    background-color: #0029FF;
+}
