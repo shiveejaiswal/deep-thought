@@ -1,7 +1,9 @@
 .app {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .app-header {
@@ -22,13 +24,6 @@
 .logo-image {
   height: 40px;
   width: auto;
-  margin-right: 10px;
-}
-
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
 }
 
 .header-actions {
@@ -45,8 +40,8 @@
 }
 
 .icon-button img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 .avatar {
@@ -71,16 +66,80 @@
 
 .more-options-icon {
   font-size: 24px;
-  color: blue;
+  color: #0029FF;
 }
 
 .app-container {
-  flex: 1;
   display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
-  background-color: white;
   overflow-y: auto;
+  padding: 20px;
+  transition: margin 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 60px;
+}
+
+.main-content.notice-board-expanded {
+  margin-right: 200px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0029FF;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 14px;
+  color: #666;
+  max-width: 70%;
+  line-height: 1.5;
+}
+
+.submit-task-button {
+  background-color: #0029FF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  height: calc(100vh - 180px);
+}
+
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #333;
+}
+
+.error {
+  color: #ff0000;
 }

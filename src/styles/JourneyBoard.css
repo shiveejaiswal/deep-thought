@@ -1,8 +1,8 @@
 .journey-board {
-    background: #000000;
-    color: white;
+    background: white;
+    height: 100%;
     transition: width 0.3s ease;
-    height: calc(100vh - 60px);
+    border-right: 1px solid #E9E9E9;
 }
 
 .journey-board.expanded {
@@ -10,15 +10,23 @@
 }
 
 .journey-board.collapsed {
-    width: 50px;
+    width: 60px;
 }
 
-.journey-board-header {
-    padding: 15px;
+.journey-header {
+    background: #000000;
+    padding: 16px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #333;
+    color: white;
+    height: 60px;
+}
+
+.journey-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .toggle-button {
@@ -26,42 +34,56 @@
     border: none;
     color: white;
     cursor: pointer;
-}
-
-.journey-board-title {
-    margin: 0;
+    padding: 4px;
     font-size: 16px;
 }
 
-.journey-board-content {
-    padding: 15px 0;
+.journey-board.collapsed .toggle-button {
+    margin: 0 auto;
+}
+
+.journey-content {
+    padding: 16px;
 }
 
 .task-group {
-    cursor: pointer;
-}
-
-.task-group.active {
-    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
 }
 
 .task-title {
-    padding: 10px 15px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 12px;
 }
 
-.asset-list {
+.subtask-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.asset-item {
-    padding: 8px 30px;
+.subtask-item {
+    padding: 8px 0;
+    color: #666;
+    cursor: pointer;
+}
+
+.numbers-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.number-item {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border-radius: 4px;
+    color: #333;
     font-size: 14px;
-}
-
-.asset-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.asset-item.active {
-    background-color: #0029FF;
 }

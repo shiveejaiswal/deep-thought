@@ -1,49 +1,48 @@
 import React from 'react';
 import '../styles/JourneyBoard.css';
 
-function JourneyBoard({ 
-  isExpanded, 
-  onToggle, 
-  tasks, 
-  selectedTaskId, 
-  selectedAssetId,
-  onAssetSelect,
-  onTaskSelect 
-}) {
+function JourneyBoard({ isExpanded, onToggle }) {
+  const tasks = [
+    {
+      title: "Explore the world of management",
+      subtasks: [
+        "Technical Project Management",
+        "Threadbuild",
+        "Structure your pointers",
+        "4SA Method"
+      ]
+    }
+  ];
+
   return (
     <div className={`journey-board ${isExpanded ? 'expanded' : 'collapsed'}`}>
-      <div className="journey-board-header">
+      <div className="journey-header">
+        {isExpanded && <h3>Journey Board</h3>}
         <button onClick={onToggle} className="toggle-button">
           {isExpanded ? '◀' : '▶'}
         </button>
-        <h3 className="journey-board-title">Journey Board</h3>
       </div>
-      <div className="journey-board-content">
-        {tasks.map((task) => (
-          <div 
-            key={task.task_id} 
-            className={`task-group ${selectedTaskId === task.task_id ? 'active' : ''}`}
-            onClick={() => onTaskSelect(task.task_id)}
-          >
-            <div className="task-title">{task.task_title}</div>
-            {isExpanded && (
-              <ul className="asset-list">
-                {task.assets.map((asset) => (
-                  <li 
-                    key={asset.asset_id}
-                    className={`asset-item ${selectedAssetId === asset.asset_id ? 'active' : ''}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onAssetSelect(asset.asset_id);
-                    }}
-                  >
-                    {asset.asset_title}
+      <div className="journey-content">
+        {isExpanded ? (
+          tasks.map((task, index) => (
+            <div key={index} className="task-group">
+              <div className="task-title">{task.title}</div>
+              <ul className="subtask-list">
+                {task.subtasks.map((subtask, subIndex) => (
+                  <li key={subIndex} className="subtask-item">
+                    {subtask}
                   </li>
                 ))}
               </ul>
-            )}
+            </div>
+          ))
+        ) : (
+          <div className="numbers-list">
+            {tasks[0].subtasks.map((_, index) => (
+              <div key={index} className="number-item">{index + 1}</div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
